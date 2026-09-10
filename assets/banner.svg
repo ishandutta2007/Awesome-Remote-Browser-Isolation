@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050814" />
+      <stop offset="50%" stop-color="#0b1329" />
+      <stop offset="100%" stop-color="#040711" />
+    </linearGradient>
+
+    <!-- Neon Accents -->
+    <linearGradient id="cyanPurpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="50%" stop-color="#4facfe" />
+      <stop offset="100%" stop-color="#9b51e0" />
+    </linearGradient>
+
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00f5d4" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0077b6" stop-opacity="0.3" />
+    </linearGradient>
+
+    <linearGradient id="laserGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0" />
+      <stop offset="50%" stop-color="#00f2fe" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#00f2fe" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Filters for Glow Effects -->
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glowPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Pattern Grid -->
+    <pattern id="cyberGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#132347" stroke-width="0.8" opacity="0.6" />
+      <circle cx="40" cy="40" r="1.5" fill="#00f2fe" opacity="0.25" />
+    </pattern>
+
+    <style>
+      @keyframes scanline {
+        0% { transform: translateY(0px); opacity: 0.1; }
+        50% { opacity: 0.8; }
+        100% { transform: translateY(420px); opacity: 0.1; }
+      }
+
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.4; transform: scale(1); }
+        50% { opacity: 0.85; transform: scale(1.03); }
+      }
+
+      @keyframes floatShield {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
+
+      @keyframes dashStream {
+        0% { stroke-dashoffset: 200; }
+        100% { stroke-dashoffset: 0; }
+      }
+
+      @keyframes radarSweep {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      @keyframes blinkDot {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+      }
+
+      .scanner {
+        animation: scanline 6s ease-in-out infinite;
+      }
+
+      .floating-shield {
+        transform-origin: 180px 210px;
+        animation: floatShield 4s ease-in-out infinite;
+      }
+
+      .pulsing-aura {
+        transform-origin: 180px 210px;
+        animation: pulseGlow 3s ease-in-out infinite;
+      }
+
+      .stream-line {
+        stroke-dasharray: 8 14;
+        animation: dashStream 3s linear infinite;
+      }
+
+      .radar-arm {
+        transform-origin: 1060px 140px;
+        animation: radarSweep 8s linear infinite;
+      }
+
+      .dot-1 { animation: blinkDot 1.4s infinite; }
+      .dot-2 { animation: blinkDot 1.8s infinite 0.4s; }
+      .dot-3 { animation: blinkDot 2.2s infinite 0.8s; }
+    </style>
+  </defs>
+
+  <!-- Deep Backdrop -->
+  <rect width="1200" height="420" fill="url(#bgGrad)" />
+
+  <!-- Cybernetic Grid Overlay -->
+  <rect width="1200" height="420" fill="url(#cyberGrid)" />
+
+  <!-- Ambient Glow Blobs -->
+  <circle cx="180" cy="210" r="140" fill="#00f2fe" opacity="0.12" filter="url(#glowCyan)" />
+  <circle cx="850" cy="180" r="180" fill="#9b51e0" opacity="0.1" filter="url(#glowPurple)" />
+  <circle cx="1060" cy="140" r="100" fill="#00f5d4" opacity="0.08" filter="url(#glowCyan)" />
+
+  <!-- Moving Laser Scanner Bar -->
+  <rect class="scanner" x="0" y="0" width="1200" height="4" fill="url(#laserGrad)" filter="url(#glowCyan)" />
+
+  <!-- Data Flow Streams (Zero-Trust Air-Gap Render Lines) -->
+  <path class="stream-line" d="M 280 210 L 400 210 Q 430 210 440 180 L 470 120" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.7" />
+  <path class="stream-line" d="M 280 230 L 380 230 Q 410 230 430 260 L 460 300" fill="none" stroke="#9b51e0" stroke-width="2" opacity="0.7" />
+  <path class="stream-line" d="M 980 210 L 920 210 Q 890 210 880 250" fill="none" stroke="#00f5d4" stroke-width="1.8" opacity="0.5" />
+
+  <!-- LEFT: Remote Browser Isolation Icon (Browser inside Shielded Air-Gap) -->
+  <g class="floating-shield">
+    <!-- Pulsing Outer Shield Aura -->
+    <path class="pulsing-aura" d="M 180 90 L 255 130 C 255 230 180 285 180 285 C 180 285 105 230 105 130 Z"
+          fill="none" stroke="#00f2fe" stroke-width="3" filter="url(#glowCyan)" />
+
+    <!-- Solid Shield Backplate -->
+    <path d="M 180 98 L 245 134 C 245 224 180 273 180 273 C 180 273 115 224 115 134 Z"
+          fill="#0c1938" stroke="#4facfe" stroke-width="2" opacity="0.85" />
+
+    <!-- Isolated Browser Window Inside Shield -->
+    <rect x="135" y="145" width="90" height="75" rx="8" fill="#070c1e" stroke="#00f5d4" stroke-width="1.8" />
+    <path d="M 135 162 L 225 162" stroke="#00f5d4" stroke-width="1" opacity="0.6" />
+    
+    <!-- Window Control Buttons -->
+    <circle cx="145" cy="153" r="3" fill="#ff5f56" />
+    <circle cx="154" cy="153" r="3" fill="#ffbd2e" />
+    <circle cx="163" cy="153" r="3" fill="#27c93f" />
+
+    <!-- Safe Render Pixel Stream Grid Inside Browser -->
+    <rect x="144" y="171" width="30" height="12" rx="3" fill="#00f2fe" opacity="0.4" />
+    <rect x="180" y="171" width="36" height="12" rx="3" fill="#9b51e0" opacity="0.3" />
+    <rect x="144" y="189" width="72" height="6" rx="2" fill="#4facfe" opacity="0.3" />
+    <rect x="144" y="201" width="50" height="6" rx="2" fill="#00f5d4" opacity="0.35" />
+
+    <!-- Isolated Lock Symbol -->
+    <path d="M 175 238 L 185 238 A 5 5 0 0 1 190 243 L 190 251 A 5 5 0 0 1 185 256 L 175 256 A 5 5 0 0 1 170 251 L 170 243 A 5 5 0 0 1 175 238 Z" fill="#00f5d4" opacity="0.9" />
+    <path d="M 174 238 L 174 233 A 6 6 0 0 1 186 233 L 186 238" fill="none" stroke="#00f5d4" stroke-width="2.2" stroke-linecap="round" />
+  </g>
+
+  <!-- CENTER: Typography & Branding -->
+  <g transform="translate(340, 75)">
+    <rect x="0" y="0" width="375" height="32" rx="16" fill="#132347" stroke="#00f2fe" stroke-width="1.2" opacity="0.9" />
+    <circle cx="18" cy="16" r="4" fill="#00ff88" class="dot-1" />
+    <text x="32" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+          font-size="12" font-weight="700" fill="#00f5d4" letter-spacing="1.5">ZERO-TRUST REMOTE WEB ISOLATION</text>
+  </g>
+
+  <!-- Main Title -->
+  <g transform="translate(340, 155)">
+    <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+          font-size="44" font-weight="900" fill="url(#cyanPurpleGrad)" letter-spacing="-0.5" filter="url(#glowCyan)">
+      Awesome Remote Browser
+    </text>
+    <text x="0" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+          font-size="46" font-weight="900" fill="#ffffff" letter-spacing="-0.5">
+      Isolation (RBI)
+    </text>
+  </g>
+
+  <!-- Subtitle -->
+  <g transform="translate(340, 245)">
+    <text x="0" y="0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+          font-size="16" font-weight="500" fill="#94a3b8" letter-spacing="0.4">
+      Curated Enterprise SaaS Solutions, Open-Source Sandboxes &amp; Secure Cloud Browsers
+    </text>
+  </g>
+
+  <!-- Feature Tags / Chips -->
+  <g transform="translate(340, 275)">
+    <!-- Tag 1 -->
+    <rect x="0" y="0" width="130" height="28" rx="6" fill="#0f1f3d" stroke="#1e3a8a" stroke-width="1" />
+    <text x="65" y="18" font-family="sans-serif" font-size="11" font-weight="600" fill="#38bdf8" text-anchor="middle">🛡️ Air-Gap Defense</text>
+    
+    <!-- Tag 2 -->
+    <rect x="140" y="0" width="135" height="28" rx="6" fill="#0f1f3d" stroke="#1e3a8a" stroke-width="1" />
+    <text x="207" y="18" font-family="sans-serif" font-size="11" font-weight="600" fill="#a855f7" text-anchor="middle">⚡ Safe DOM / Pixel</text>
+
+    <!-- Tag 3 -->
+    <rect x="285" y="0" width="145" height="28" rx="6" fill="#0f1f3d" stroke="#1e3a8a" stroke-width="1" />
+    <text x="357" y="18" font-family="sans-serif" font-size="11" font-weight="600" fill="#34d399" text-anchor="middle">☁️ Container Sandboxes</text>
+
+    <!-- Tag 4 -->
+    <rect x="440" y="0" width="150" height="28" rx="6" fill="#0f1f3d" stroke="#1e3a8a" stroke-width="1" />
+    <text x="515" y="18" font-family="sans-serif" font-size="11" font-weight="600" fill="#f43f5e" text-anchor="middle">🔒 Zero-Day Protection</text>
+  </g>
+
+  <!-- RIGHT: Radar / Threat Telemetry Widget -->
+  <g transform="translate(1060, 140)">
+    <!-- Radar Rings -->
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#1e3a8a" stroke-width="1" opacity="0.4" />
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#1e3a8a" stroke-width="1" opacity="0.6" />
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#00f2fe" stroke-width="1" opacity="0.5" />
+    
+    <!-- Crosshairs -->
+    <line x1="-85" y1="0" x2="85" y2="0" stroke="#1e3a8a" stroke-width="1" opacity="0.5" />
+    <line x1="0" y1="-85" x2="0" y2="85" stroke="#1e3a8a" stroke-width="1" opacity="0.5" />
+
+    <!-- Rotating Radar Scanner Arm -->
+    <line class="radar-arm" x1="0" y1="0" x2="80" y2="0" stroke="#00f5d4" stroke-width="2" opacity="0.8" filter="url(#glowCyan)" />
+
+    <!-- Threat Disarmed Blips -->
+    <circle cx="35" cy="-25" r="4" fill="#00ff88" class="dot-1" filter="url(#glowCyan)" />
+    <circle cx="-42" cy="30" r="3" fill="#00f2fe" class="dot-2" />
+    <circle cx="20" cy="45" r="3" fill="#a855f7" class="dot-3" />
+    <text x="0" y="110" font-family="sans-serif" font-size="11" font-weight="700" fill="#00f5d4" text-anchor="middle" letter-spacing="1">ISOLATION ACTIVE</text>
+  </g>
+
+  <!-- Bottom Accent Border Line -->
+  <rect x="0" y="416" width="1200" height="4" fill="url(#cyanPurpleGrad)" />
+</svg>
